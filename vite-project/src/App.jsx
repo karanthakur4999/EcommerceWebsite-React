@@ -7,11 +7,21 @@ import Contact from './Contact';
 import Cart from './Cart';
 import SingleProduct from './SingleProduct';
 import ErrorPage from './ErrorPage';
+import { GlobalStyle } from './GlobalStyle';
+import { ThemeProvider } from 'styled-components';
 
 const App = () => {
+
+  const theme ={
+    colors:{
+      bg: "#fff",
+    },
+  }
   return (
     <>
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
+    <GlobalStyle/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
@@ -23,6 +33,7 @@ const App = () => {
       <Route path='*' element={<ErrorPage/>}></Route>
     </Routes>
     </BrowserRouter>
+    </ThemeProvider>
     
     </>
   )
